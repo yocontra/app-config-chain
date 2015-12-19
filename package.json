@@ -15,14 +15,13 @@
     "jshint": "^2.5.11",
     "jshint-stylish": "^2.1.0",
     "mocha": "^2.3.4",
-    "mocha-istanbul": "^0.2.0",
     "should": "^8.0.0"
   },
   "main": "./index.js",
   "scripts": {
     "lint": "jshint index.js --exclude node_modules --config .jshintrc --reporter node_modules/jshint-stylish/index.js",
     "test": "npm run-script lint && mocha --recursive --reporter spec",
-    "coveralls": "mocha --recursive --reporter mocha-istanbul && istanbul-coveralls"
+    "coveralls": "istanbul cover _mocha && istanbul-coveralls"
   },
   "engines": {
     "node": ">= 0.10"
