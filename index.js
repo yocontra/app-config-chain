@@ -3,7 +3,7 @@
 var argv = require('minimist')(process.argv.slice(2));
 var merge = require('lodash.merge');
 var path = require('path');
-var env = argv.env || process.env.NODE_ENV || 'local';
+var env = argv.env || process.env.NODE_ENV;
 
 // figure out where the config files are at
 var cfgDir = process.env.NODE_CONFIG_DIR;
