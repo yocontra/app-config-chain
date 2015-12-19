@@ -1,4 +1,4 @@
-# app-config-chain [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Support us][gittip-image]][gittip-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url]
+# app-config-chain [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url]
 
 
 ## Information
@@ -25,10 +25,18 @@
 ```
 npm install app-config-chain --save
 ```
+
 ## Example
 
+Loads configuration files from a `config` folder in your project root.
+
+- `default` is always loaded if it exists
+- If you specify `NODE_ENV=production` then both `production` and `default` are loaded, with `production` taking precedence.
+- Any valid JS extension can be used for config - JS, json, etc.
+  - To load another extension, register it before you require this module
+
 ```js
-EXAMPLEHERE
+var config = require('app-config-chain');
 ```
 
 ## LICENSE
