@@ -11,7 +11,7 @@ var envConfigPath, defaultConfigPath, cfgDir,
 // figure out where the config files are at
 cfgDir = process.env.NODE_CONFIG_DIR;
 if (!cfgDir) {
-  cfgDir = path.resolve(process.cwd, 'config/') + '/';
+  cfgDir = path.resolve(process.cwd(), 'config/') + '/';
 } else {
   cfgDir = path.resolve(cfgDir) + '/';
 }
