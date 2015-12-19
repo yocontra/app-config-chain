@@ -1,7 +1,7 @@
 {
   "name": "app-config-chain",
   "description": "Cascading configuration for web applications",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "http://github.com/contra/app-config-chain",
   "repository": "git://github.com/contra/app-config-chain.git",
   "author": "Contra <yo@contra.io> (http://contra.io)",
