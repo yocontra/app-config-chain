@@ -5,18 +5,23 @@ var merge = require('lodash.merge');
 var path = require('path');
 var env = argv.env || process.env.NODE_ENV;
 
+var envConfigPath, defaultConfigPath, cfgDir,
+  defaultConfig, envConfig;
+
 // figure out where the config files are at
-var cfgDir = process.env.NODE_CONFIG_DIR;
+cfgDir = process.env.NODE_CONFIG_DIR;
 if (!cfgDir) {
   cfgDir = path.resolve(process.cwd, 'config/') + '/';
 } else {
   cfgDir = path.resolve(cfgDir) + '/';
 }
 
-var defaultConfigPath = path.join(cfgDir, 'default');
-var envConfigPath = path.join(cfgDir, env);
 
-var defaultConfig, envConfig;
+var defaultConfigPath = path.join(cfgDir, 'default');
+
+if (env) {
+  envConfigPath = path.join(cfgDir, env);
+}
 
 try {
   defaultConfig = require(defaultConfigPath);
@@ -25,7 +30,11 @@ try {
 }
 
 try {
-  envConfig = require(envConfigPath);
+  if (envConfigPath) {
+    envConfig = require(envConfigPath);
+  } else {
+    envConfig = {};
+  }
 } catch (err) {
   envConfig = {}; // no env specified
 }
