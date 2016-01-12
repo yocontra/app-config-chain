@@ -47,4 +47,16 @@ describe('app-config-chain', function() {
     });
     done();
   });
+  it('should load env when provided', function(done) {
+    process.env.NODE_CONFIG_DIR = path.join(__dirname, 'config');
+    process.env.NODE_ENV = 'error';
+    try {
+      var config = require('../');
+    }
+    catch (e) {
+      should.exist(e);
+      should(e.message).match(/SyntaxError: /);
+      done();
+    }
+  });
 });
