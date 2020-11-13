@@ -52,10 +52,9 @@ describe('app-config-chain', function() {
     process.env.NODE_ENV = 'error';
     try {
       var config = require('../');
-    }
-    catch (e) {
+    } catch (e) {
       should.exist(e);
-      should(e.message).match(/SyntaxError: /);
+      should(e.message).match(/^Error loading file (.*)error/);
       done();
     }
   });

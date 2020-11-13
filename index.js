@@ -33,7 +33,8 @@ try {
     envConfig = require(envConfigPath);
   }
 } catch (err) {
-  throw new Error(err);
+  err.message = 'Error loading file ' + envConfigPath + ':\n\n' + err.message;
+  throw err;
 }
 
 module.exports = merge(defaultConfig, envConfig);

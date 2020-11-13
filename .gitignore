@@ -10,6 +10,7 @@ lib-cov
 *.gz
 lcov.info
 lcov-report
+yarn.lock
 
 pids
 logs
